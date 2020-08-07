@@ -19,9 +19,9 @@ class StudentInfor extends StatelessWidget {
             SizedBox(width: 5,),
             Text(this._Hoten, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21, color: Colors.white),),
             SizedBox(width: 10,),
-            Icon(Icons.beenhere, color: Colors.white, size: 15,),
+            Icon(Icons.beenhere, color: Colors.green, size: 15,),
             SizedBox(width: 5,),
-            Text("Verified Account", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),)
+            Text("Verified Account", style: TextStyle( color: Colors.green, fontSize: 15, fontWeight: FontWeight.bold , /*foreground: Paint()..style = PaintingStyle.stroke..strokeWidth = 0.5..color = Colors.white,*/),)
           ],
         )
     ):
