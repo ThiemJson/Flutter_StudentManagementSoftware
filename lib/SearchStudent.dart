@@ -70,7 +70,7 @@ class _SearhStudentState extends State<SearhStudent> {
     return Scaffold(
       backgroundColor: Color(0xFF832685),
       appBar: AppBar(
-        elevation: 5,
+        elevation: 20,
         centerTitle: false,
         //backgroundColor: Color(0xFF832685),
 //        backgroundColor: Colors.indigoAccent,

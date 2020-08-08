@@ -48,24 +48,36 @@ class StudentInfor extends StatelessWidget {
         //Cot thu 1
         Container(
           margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
-          alignment: Alignment.topRight,
+          //alignment: Alignment.topRight,
           color: Colors.blue,
           child: Column(
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Icon(Icons.contact_mail, color: Colors.white , size: 15,),
-                  SizedBox(width: 5,),
-                  Text(this._MaSV, style: TextStyle(fontSize: 15, color: Colors.white, fontStyle: FontStyle.italic),),
-                ],
+              Container(
+                //alignment: Alignment.topLeft,
+                child: Container(
+                  alignment: Alignment.topLeft,
+                  child: Row(
+                    children: <Widget>[
+                      Icon(Icons.contact_mail, color: Colors.white , size: 15,),
+                      SizedBox(width: 5,),
+                      Text(this._MaSV, style: TextStyle(fontSize: 15, color: Colors.white, fontStyle: FontStyle.italic),),
+                    ],
+                  ),
+                ),
               ),
               SizedBox(height: 5,),
-              Row(
-                children: <Widget>[
-                  Icon(Icons.group, color: Colors.white , size: 15,),
-                  SizedBox(width: 5,),
-                  Text(this._Lop, style: TextStyle(fontSize: 15, color: Colors.white, fontStyle: FontStyle.italic),),
-                ],
+              Container(
+                //alignment: Alignment.topLeft,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Row(
+                    children: <Widget>[
+                      Icon(Icons.group, color: Colors.white , size: 15,),
+                      SizedBox(width: 5,),
+                      Text(this._Lop, style: TextStyle(fontSize: 15, color: Colors.white, fontStyle: FontStyle.italic),),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
