@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:student_management_software/StudentInfor.dart';
 import 'Responsive.dart';
-
+import 'StudentInfor.dart';
 
 
 class MyApp extends StatefulWidget {
@@ -34,18 +34,49 @@ class SearhStudent extends StatefulWidget {
 }
 
 class _SearhStudentState extends State<SearhStudent> {
+
+  List<StudentInfor> StudentInfors = [
+    StudentInfor('Nguyễn Cao Thiên', "60TH3", "1851061743", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Nguyễn Văn A', "60HT", "1851161111", "Công tác quốc tế", "Đại học Sư phạm Hà Nội",false),
+    StudentInfor('Nguyễn Văn Dũng', "61TH1", "1851160151", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Nguyễn Cao Thiêm1', "45TH3", "1851061743", "Buôn lậu", "Thuyloi University",false),
+    StudentInfor('Nguyễn Ngọc Minh Châu', "34TH3", "1851061743", "Information Technology", "Thuyloi University",false),
+    StudentInfor('Trương Việt Thắng', "90TH3", "1851061743", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Vũ Hồng Quân', "60TH3", "1851061743", "Information Technology", "Thuyloi University",false),
+    StudentInfor('Lâm Thị Kiều', "60TH3", "1851061743", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Nguyễn Văn Mạnh', "60TH3", "1851061743", "Information Technology", "Thuyloi University",false),
+    StudentInfor('Trương Tiến Đạt', "60TH3", "1851061743", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Nguyễn Cao Thiên', "60TH3", "1851061743", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Nguyễn Văn A', "60HT", "1851161111", "Công tác quốc tế", "Đại học Sư phạm Hà Nội",false),
+    StudentInfor('Nguyễn Văn Dũng', "61TH1", "1851160151", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Nguyễn Cao Thiêm1', "45TH3", "1851061743", "Buôn lậu", "Thuyloi University",false),
+    StudentInfor('Nguyễn Ngọc Minh Châu', "34TH3", "1851061743", "Information Technology", "Thuyloi University",false),
+    StudentInfor('Trương Việt Thắng', "90TH3", "1851061743", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Vũ Hồng Quân', "60TH3", "1851061743", "Information Technology", "Thuyloi University",false),
+    StudentInfor('Lâm Thị Kiều', "60TH3", "1851061743", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Nguyễn Văn Mạnh', "60TH3", "1851061743", "Information Technology", "Thuyloi University",false),
+    StudentInfor('Trương Tiến Đạt', "60TH3", "1851061743", "Information Technology", "Thuyloi University",true),
+    StudentInfor('Nguyễn Văn Mạnh', "60TH3", "1851061743", "Information Technology", "Thuyloi University",false),
+    StudentInfor('Trương Tiến Đạt', "60TH3", "1851061743", "Information Technology", "Thuyloi University",true),
+  ];
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.lime,
+      backgroundColor: Color(0xFF832685),
       appBar: AppBar(
-        elevation: 0.0,
+        elevation: 5,
         centerTitle: false,
         //backgroundColor: Color(0xFF832685),
 //        backgroundColor: Colors.indigoAccent,
         flexibleSpace: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(begin: Alignment.topCenter, colors: [Color(0xFF832685),Color(0xFFC81379)])
+            gradient: LinearGradient(begin: Alignment.topCenter, colors: [Color(0xFFC81379), Color(0xFF832685)])
           ),
         ),
         title: Text("Search Student", style: TextStyle(fontSize: 30, color: Colors.white),),
@@ -54,42 +85,40 @@ class _SearhStudentState extends State<SearhStudent> {
         ),
       ),
       body: SafeArea(
-        //minimum: EdgeInsets.all(10),
+        //minimum: EdgeInsets.all(12),
           child: Container(
-            width: 1000,
-            height: 1000,
-            color: Colors.deepPurpleAccent,
-            padding: EdgeInsets.symmetric(vertical: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(19),
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: <Widget>[
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(19),
+                    ),
+                    elevation: 10,
+                    color: Colors.blue,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: MediaQuery.of(context).size.height*0.2,
+                      padding: EdgeInsets.all(12),
+                    ),
                   ),
-                  elevation: 29,
-                  color: Colors.blue,
-                  child: Container(
-                    padding: EdgeInsets.all(12),
-                    width: 1000*0.55,
-                    height: 150,
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width*0.9,
+                      height: MediaQuery.of(context).size.height*0.4,
+                      child: ListView.builder(
+                        itemCount: StudentInfors.length,
+                        itemBuilder: (BuildContext context, int index){
+                          return StudentInfors[index];
+                        },
+                      ),
+                    ),
                   ),
-                ),
-                SizedBox(height: 20,),
-                Container(
-                  padding: EdgeInsets.all(12),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      StudentInfor('Nguyễn Cao Thiêm', "60TH3", "1851061743", "Information Technology", "Thuyloi University",true),
-                      StudentInfor('Nguyễn Văn A', "60HT", "1851161111", "Công tác quốc tế", "Đại học Sư phạm Hà Nội",false),
-                      StudentInfor('Nguyễn Văn Dũng', "60TH1", "1851160151", "Information Technology", "Thuyloi University",true),
-                      StudentInfor('Nguyễn Cao Thiêm', "60TH3", "1851061743", "Information Technology", "Thuyloi University",false),
-                    ],
-                  ),
-                ),
-
-              ],
+                ],
+              ),
             ),
           )
       ),
@@ -106,3 +135,4 @@ class _SearhStudentState extends State<SearhStudent> {
     );
   }
 }
+

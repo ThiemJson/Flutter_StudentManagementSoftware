@@ -102,17 +102,20 @@ class StudentInfor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 20,
+      elevation: 3,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15)
       ),
       color: Colors.blue,
-      child: ListTile(
-        leading: Icon(Icons.account_circle, color: Colors.white, size: 50,),
-        title: getTitleOfListTileOfCard(),
-        subtitle: getSubtitleOfTileOfCard(),
-        onTap: null,
-      ),
+      child: Container(
+        width: MediaQuery.of(context).size.width*0.9,
+        child: ListTile(
+          leading: Icon(Icons.account_circle, color: Colors.white, size: 50,),
+          title: getTitleOfListTileOfCard(),
+          subtitle: getSubtitleOfTileOfCard(),
+          onTap: null,
+        ),
+      )
     );
   }
 }
