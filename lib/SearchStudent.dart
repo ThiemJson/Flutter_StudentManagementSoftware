@@ -35,6 +35,55 @@ class SearhStudent extends StatefulWidget {
 
 class _SearhStudentState extends State<SearhStudent> {
 
+  void showModelBottomSheet(){
+    showModalBottomSheet(context: context, builder: (context){
+      return Container(
+        color: Color(0xFF832685),
+        width: MediaQuery.of(context).size.width*0.5,
+        height: MediaQuery.of(context).size.height*0.7,
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              width: MediaQuery.of(context).size.width*0.5,
+              height: MediaQuery.of(context).size.height*0.09,
+              child: TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.blue,
+                  labelText: "Email",
+                  labelStyle: TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
+                  prefixIcon: Icon(Icons.email, color: Colors.white,)
+                ),
+              ),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width*0.5,
+              height: MediaQuery.of(context).size.height*0.09,
+              child: TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.blue,
+                    labelText: "Password",
+                    labelStyle: TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
+                    prefixIcon: Icon(Icons.lock, color: Colors.white,),
+                    suffixIcon: IconButton(
+                      onPressed: (){
+                        print("Trigger");
+                      },
+                      icon: Icon(Icons.remove_red_eye, color: Colors.white,),
+
+                    )
+                ),
+              ),
+            )
+          ],
+        ),
+      );
+    });
+  }
+
+
   List<StudentInfor> StudentInfors = [
     StudentInfor('Nguyễn Cao Thiên', "60TH3", "1851061743", "Information Technology", "Thuyloi University",true),
     StudentInfor('Nguyễn Văn A', "60HT", "1851161111", "Công tác quốc tế", "Đại học Sư phạm Hà Nội",false),
@@ -84,47 +133,49 @@ class _SearhStudentState extends State<SearhStudent> {
           Icons.account_circle, color: Colors.white, size: 40,
         ),
       ),
-      body: SafeArea(
-        //minimum: EdgeInsets.all(12),
-          child: Container(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: <Widget>[
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(19),
-                    ),
-                    elevation: 10,
-                    color: Colors.blue,
-                    child: Container(
-                      width: MediaQuery.of(context).size.width*0.9,
-                      height: MediaQuery.of(context).size.height*0.2,
-                      padding: EdgeInsets.all(12),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width*0.9,
-                      height: MediaQuery.of(context).size.height*0.4,
-                      child: ListView.builder(
-                        itemCount: StudentInfors.length,
-                        itemBuilder: (BuildContext context, int index){
-                          return StudentInfors[index];
-                        },
+      body: SingleChildScrollView(
+        child: SafeArea(
+          //minimum: EdgeInsets.all(12),
+            child: Container(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: <Widget>[
+                    Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(19),
+                      ),
+                      elevation: 10,
+                      color: Colors.blue,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width*0.9,
+                        height: MediaQuery.of(context).size.height*0.2,
+                        padding: EdgeInsets.all(12),
                       ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width*0.9,
+                        height: MediaQuery.of(context).size.height*0.4,
+                        child: ListView.builder(
+                          itemCount: StudentInfors.length,
+                          itemBuilder: (BuildContext context, int index){
+                            return StudentInfors[index];
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          )
+            )
+        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         icon: Icon(Icons.search, color: Colors.white, size: 21,),
-        onPressed: null,
+        onPressed: showModelBottomSheet,
         elevation: 29,
         backgroundColor: Colors.indigo,
         shape: RoundedRectangleBorder(
